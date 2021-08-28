@@ -12,7 +12,7 @@ def person_create_view(request):
         if form.is_valid():
             form.save()
             return redirect('person_add')
-    return render(request, 'home.html', {'form': form})
+    return render(request,  'persons/home.html', {'form': form})
 
 
 def person_update_view(request, pk):
@@ -23,12 +23,12 @@ def person_update_view(request, pk):
         if form.is_valid():
             form.save()
             return redirect('person_change', pk=pk)
-    return render(request, 'home.html', {'form': form})
+    return render(request, 'persons/home.html', {'form': form})
 
 
 # AJAX
 def load_cities(request):
     country_id = request.GET.get('country_id')
     cities = City.objects.filter(country_id=country_id).all()
-    return render(request, 'city_dropdown_list_options.html', {'cities': cities})
+    return render(request, 'persons/city_dropdown_list_options.html', {'cities': cities})
     # return JsonResponse(list(cities.values('id', 'name')), safe=False)
