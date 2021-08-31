@@ -22,7 +22,7 @@ from projectAPP import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('add/', views.person_create_view, name='person_add'),
-    path('<str:pk>/', views.person_update_view, name='person_change'),
+    path('<int:pk>/', views.person_update_view, name='person_change'),
     
     
     path('ajax/load-cities/', views.load_cities, name='ajax_load_cities'), # AJAX

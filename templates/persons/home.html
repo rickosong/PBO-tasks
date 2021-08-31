@@ -8,12 +8,13 @@
     <title>Tugas PBO</title>
 </head>
 <body>
-<h2>Form Pengisian data orang</h2>
+<h2>Form Person</h2>
 
 <form method="post" id="personForm" data-cities-url="{% url 'ajax_load_cities' %}">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Submit">
+    <a href="{% url 'person_add' %}">Kosongkan Isi Field</a>
 </form>
 
 <!-- js -->
